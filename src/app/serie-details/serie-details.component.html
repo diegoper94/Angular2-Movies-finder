@@ -1,0 +1,28 @@
+<div class="row" *ngIf="serie">
+  <div class="col-md-4">
+    <img src="https://image.tmdb.org/t/p/w500/{{serie.poster_path}}" alt="" class="thumbnail">
+    <p>
+      <a *ngIf="serie.homepage" href="{{serie.homepage}}" class="btn btn-info btn-block" target="_blank">Visit Series Website</a>
+    </p>
+  </div>
+  <div class="col-md-8">
+    <h2>{{serie.name}}
+      <small class="label label-warning">
+        {{serie.vote_average}}
+        <i class="glyphicon glyphicon-star"></i>
+      </small>
+    </h2>
+    <p>Last Air Date: {{serie.last_air_date}}</p>
+    <p>Number of Seasons: {{serie.number_of_seasons}}</p>
+    <p>Number of Episodes: {{serie.number_of_episodes}}</p>
+    <p>
+      <a routerLink="/genres/{{genre.id}}/{{genre.name}}" *ngFor="let genre of serie.genres" class="label label-info m-r-md">
+        {{genre.name}}
+      </a>
+    </p>
+    <h3>Overview</h3>
+    <p>
+      {{serie.overview}}
+    </p>
+  </div>
+</div>

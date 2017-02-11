@@ -1,3 +1,44 @@
-<h1>
-  {{title}}
-</h1>
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" routerLink="/">Movies Finder</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="#"><a routerLink="/upcoming movies">Upcoming Movies <span class="sr-only">(current)</span></a></li>
+        <li><a routerLink="/popular series">Popular Series</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-->
+</nav>
+  <div class="container-fluid">
+<div class="row">
+  <div class="col-md-2">
+  <ul class="list-group">
+  <li class="list-group-item" id="categories">Movies Categories</li>
+  <a routerLink="genres/{{genre.id}}/{{genre.name}}"
+     routerLinkActive="active" 
+     class="list-group-item list-group-item-action"
+    *ngFor="let genre of genres; let i = index;">{{genre.name}}</a>
+  </ul>
+  </div>
+  <div class="col-md-10">
+      <router-outlet></router-outlet>
+  </div>
+</div>
+</div>
+<div class="container-fluid">
+<hr>
+  <footer>
+    <p>&copy; 2017 Industry, Inc.</p>
+  </footer>
+</div>
